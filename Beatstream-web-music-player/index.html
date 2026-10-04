@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BeatStream - Visualizer Music Player</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="player-container">
+        <div class="main-player">
+            <div class="header-title">
+                <h2><i class="fa-solid fa-music"></i> BeatStream</h2>
+                <p class="subtitle">Visual Music Player</p>
+            </div>
+            
+            <div class="file-input-container">
+                <input type="file" id="audio-file" accept="audio/*" multiple>
+                <label for="audio-file" class="btn-upload">
+                    <i class="fa-solid fa-cloud-arrow-up"></i> Add Songs
+                </label>
+            </div>
+
+            <div class="track-info">
+                <p id="track-name"><i class="fa-solid fa-compact-disc"></i> No track loaded</p>
+            </div>
+
+            <canvas id="visualizer" width="600" height="170"></canvas>
+
+            <div class="progress-container">
+                <span id="current-time">0:00</span>
+                <input type="range" id="progress-bar" value="0" min="0" max="100">
+                <span id="total-duration">0:00</span>
+            </div>
+
+            <div class="controls">
+                <button id="prev-btn" class="btn-icon"><i class="fa-solid fa-backward-step"></i></button>
+                <button id="play-btn" class="btn-icon main-btn"><i class="fa-solid fa-play"></i></button>
+                <button id="pause-btn" class="btn-icon main-btn" style="display:none;"><i class="fa-solid fa-pause"></i></button>
+                <button id="next-btn" class="btn-icon"><i class="fa-solid fa-forward-step"></i></button>
+            </div>
+
+            <div class="mode-controls">
+                <button id="shuffle-btn" class="btn-mode"><i class="fa-solid fa-shuffle"></i> Shuffle: Off</button>
+                <button id="repeat-btn" class="btn-mode"><i class="fa-solid fa-repeat"></i> Repeat: Off</button>
+            </div>
+
+            <div class="volume-container">
+                <i class="fa-solid fa-volume-high"></i>
+                <input type="range" id="volume" min="0" max="1" step="0.01" value="0.7">
+            </div>
+
+            <audio id="audio-element" crossorigin="anonymous"></audio>
+        </div>
+
+        <div class="playlist-container">
+            <h3><i class="fa-solid fa-list-ul"></i> Playlist</h3>
+            <ul id="playlist">
+                <li class="empty-msg"><i class="fa-regular fa-folder-open"></i> No songs added yet</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="script.js?v=4.0"></script>
+</body>
+</html>
